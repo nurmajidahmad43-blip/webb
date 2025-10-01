@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundCore - Teknologi Audio Terdepan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigasi */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #0099ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Tombol Umum */
+        .btn {
+            display: inline-block;
+            background: #0099ff;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0077cc;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Section Produk */
+        .produk {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: #0099ff;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .produk-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .produk-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .produk-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .produk-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .produk-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .produk-card p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #666;
+            text-align: left;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0099ff;
+            margin-bottom: 20px;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(to right, #0099ff, #00cc99);
+            color: white;
+            padding: 40px 10%;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .promo-banner h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .promo-banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 10% 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #0099ff;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #0099ff;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #0099ff;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Tombol WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-float i {
+            margin-top: 5px;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .produk {
+                padding: 50px 5%;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <!-- Ganti dengan logo SoundCore asli -->
+            <img src="https://via.placeholder.com/150x40/0099ff/ffffff?text=SoundCore" alt="SoundCore Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Pengalaman Audio yang Belum Pernah Anda Rasakan Sebelumnya</h1>
+            <p>Headphone dan speaker berkualitas tinggi dengan teknologi canggih untuk kehidupan yang lebih berwarna</p>
+            <a href="#produk" class="btn">Jelajahi Produk</a>
+        </div>
+    </section>
+
+    <!-- Section Produk -->
+    <section class="produk" id="produk">
+        <h2 class="section-title">Produk Unggulan</h2>
+        <div class="produk-container">
+            <div class="produk-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="SoundCore Headphone">
+                <h3>SoundCore Life Q35</h3>
+                <p>Headphone nirkabel dengan noise cancellation aktif dan kualitas suara Hi-Res yang memukau.</p>
+                <div class="price">Rp 1.599.000</div>
+                <a href="#" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-card">
+                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="SoundCore Earbuds">
+                <h3>SoundCore Liberty 4</h3>
+                <p>Earbuds true wireless dengan fitur monitoring detak jantung dan koneksi stabil.</p>
+                <div class="price">Rp 1.299.000</div>
+                <a href="#" class="btn">Beli Sekarang</a>
+            </div>
+            <div class="produk-card">
+                <img src="https://images.unsplash.com/photo-1525770043477-4f2d46f42a87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="SoundCore Speaker">
+                <h3>SoundCore Motion+</h3>
+                <p>Speaker Bluetooth dengan kualitas suara yang powerful dan baterai tahan lama hingga 12 jam.</p>
+                <div class="price">Rp 1.799.000</div>
+                <a href="#" class="btn">Beli Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <h2>Promo Spesial Hari Ini!</h2>
+        <p>Dapatkan diskon hingga 30% untuk semua produk SoundCore dan gratis ongkir ke seluruh Indonesia</p>
+        <p>Berlaku hingga 31 Oktober 2025</p>
+        <a href="https://api.whatsapp.com/send?phone=62895401563386&text=Halo%2C%20saya%20tertarik%20dengan%20promo%20SoundCore" class="btn">Dapatkan Promo</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tentang SoundCore</h3>
+                <p>SoundCore menghadirkan pengalaman audio terbaik dengan teknologi canggih dan desain elegan untuk segala kebutuhan.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Produk Kami</h3>
+                <a href="#">Headphone</a>
+                <a href="#">Earbuds</a>
+                <a href="#">Speaker</a>
+                <a href="#">Aksesori</a>
+            </div>
+            <div class="footer-section">
+                <h3>Bantuan</h3>
+                <a href="#">Pusat Bantuan</a>
+                <a href="#">Cara Pemesanan</a>
+                <a href="#">Pengembalian</a>
+                <a href="#">Garansi</a>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                <p><i class="fas fa-phone"></i> +62 21 1234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@soundcore.co.id</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SoundCore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Tombol WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=62895401563386&text=Halo%2C%20saya%20tertarik%20dengan%20produk%20SoundCore" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
